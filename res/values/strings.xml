@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">微高校</string>
+    <string name="action_settings">Settings</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="btn_submit">提  交</string>
+
+    <string name="app_list_header_refresh_down">下拉刷新</string>
+    <string name="app_list_header_refresh">松手立即刷新</string>
+    <string name="app_list_loading">正在加载</string>
+    <string name="app_list_refresh_done">刷新完成</string>
+    <string name="app_image_helper">清除图片警告，无啥用</string>
+    
+    
+    <string-array name="activity_titles">
+        <item>Basic usage playground</item>
+        <item>Heteroheight</item>
+        <item>Warp</item>
+        <item>Background handle</item>
+        <item>Sections</item>
+        <item>CursorAdapter</item>
+        <item>Multiple-choice mode</item>
+        <item>Single-choice mode</item>
+    </string-array>
+
+
+    <string-array name="jazz_artist_names">
+      <item>商家——1</item>
+      <item>商家——2</item>
+      <item>商家——3</item>
+      <item>商家——4</item>
+      <item>商家——5</item>
+      <item>商家——6</item>
+      <item>商家——7</item>
+      <item>Herbie Hancock</item>
+      <item>Joe Zawinul</item>
+      <item>Brian Blade</item>
+      <item>Jeff Ballard</item>
+      <item>Larry Grenadier</item>
+      <item>Keith Jarrett</item>
+      <item>McCoy Tyner</item>
+      <item>Stephon Harris</item>
+      <item>Mark Turner</item>
+    </string-array>
+    
+    
+    
+</resources>

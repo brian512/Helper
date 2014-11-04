@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="FunctionList">
+        <item>我的课表</item>
+        <item>订餐系统</item>
+        <item>我的课表</item>
+        <item>官方新闻</item>
+        <item>失物招领</item>
+        <item>物品漂流</item>
+        <item>查成绩</item>
+        <item>我的图书馆</item>
+        <item>学生维权</item>
+        <item>社交网络</item>
+    </string-array>
+
+</resources>

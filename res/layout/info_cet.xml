@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/lightgrey"
+    android:orientation="vertical" >
+
+    <cn.edu.wit.withelper.util.ClearEditText
+        android:id="@+id/cetID"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="40dp"
+        android:drawableRight="@drawable/delete_selector"
+        android:hint="请输入四六级考号"
+        android:inputType="number"
+        android:padding="3dp"
+        android:background="@color/white"
+        android:singleLine="true"
+        android:textSize="25sp" />
+
+    <cn.edu.wit.withelper.util.ClearEditText
+        android:id="@+id/name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="40dp"
+        android:drawableRight="@drawable/delete_selector"
+        android:hint="请输入姓名"
+        android:padding="3dp"
+        android:background="@color/white"
+        android:singleLine="true"
+        android:textSize="25sp" />
+
+    <Button
+        android:id="@+id/submit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="40dp"
+        android:padding="3dp"
+        android:background="@drawable/btn_background"
+        android:textSize="25sp"
+        android:text="查  询" />
+
+    <ScrollView 
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="15dp">
+        
+	    <TextView
+	        android:id="@+id/tvResult"
+	        android:layout_width="match_parent"
+	        android:layout_height="wrap_content"
+	        android:textColor="@color/color_text"
+	         />
+    </ScrollView>
+
+</LinearLayout>

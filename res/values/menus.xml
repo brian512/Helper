@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="restaurant1">
+        <item>清炒小白菜</item>
+        <item>地三鲜</item>
+        <item>鱼香肉丝</item>
+        <item>红烧武昌鱼</item>
+        <item>小张烤鱼</item>
+    </string-array>
+</resources>

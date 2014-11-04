@@ -1,0 +1,24 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    >
+
+   <ImageView 
+       android:id="@+id/myimgView"
+         android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_centerHorizontal="true"
+        android:scaleType="fitCenter"
+       />
+
+    <TextView 
+        android:id="@+id/mytxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@android:color/background_light"
+        android:layout_below="@+id/myimgView"
+        android:gravity="top"
+        android:layout_centerHorizontal="true"
+        />
+</RelativeLayout>

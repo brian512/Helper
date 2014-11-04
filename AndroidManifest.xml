@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="cn.edu.wit.withelper"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-sdk
+        android:minSdkVersion="8"
+        android:targetSdkVersion="9" />
+
+<!-- 开机启动 -->
+<uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+
+<!-- SDK离线地图和cache功能需要读写外部存储器 -->
+<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+<!-- 修改全局系统设置 -->
+<uses-permission android:name="android.permission.WRITE_SETTINGS" />
+
+<!-- 直接拨打电话需要以下权限  -->
+<uses-permission android:name="android.permission.CALL_PHONE" />
+
+<!-- 通过GPS得到精确位置 -->  
+<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />  
+
+<!-- 通过网络得到粗略位置 -->  
+<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />  
+
+<!-- 访问网络. 某些位置信息需要从网络服务器获取 -->   
+<uses-permission android:name="android.permission.INTERNET" />  
+
+<!-- 访问额外的位置相关命令 -->  
+<uses-permission android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS" />  
+
+<!-- 访问WiFi状态. 需要WiFi信息用于网络定位 -->  
+<uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />  
+
+<!-- 修改WiFi状态. 需要WiFi信息用于网络定位 -->  
+<uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />  
+
+<!-- 访问网络状态. 需要网络运营商相关信息用于网络定位 -->  
+<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />  
+
+<!-- 访问电话状态-->  
+<uses-permission android:name="android.permission.READ_PHONE_STATE" />  
+    
+    
+    
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/sysicon"
+        android:theme="@style/NoTitleTheme"
+        android:label="@string/app_name"
+        android:name=".application.MyApplication"
+         >
+         
+        <meta-data
+          android:name="TencentMapSDK"
+          android:value="2WQBZ-VAPHR-VLKWG-WLQDB-HLBRE-5YBVX"/>
+        
+        <activity
+            android:name=".activity.LogoActivity"
+            android:theme= "@style/NoTitleTheme" 
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+       
+        <activity android:name=".activity.order.StoreListActivity"
+            android:theme= "@style/customtitle" />
+        <activity android:name=".activity.order.FoodListActivity"
+            android:theme= "@style/customtitle" />
+       
+        <activity android:name=".activity.HomeActivity"
+            android:theme= "@style/hometitle" />
+        <activity android:name=".activity.EmptyActivity" />
+        <activity android:name=".activity.LoginActivity" />
+        <activity android:name=".activity.TieBaActivity" />
+        <activity android:name=".activity.SchoolNewsActivity" />
+        
+        <activity android:name=".activity.TencentMapActivity"
+            android:theme= "@style/customtitle" />
+        <activity android:name=".activity.StreetViewActivity"
+            android:theme= "@style/customtitle" />
+        
+        <activity android:name=".activity.guide.GuideActivity" />
+        <activity android:name=".activity.FindPwdActivity" />
+        
+        <activity android:name=".activity.infoquery.InfoQueryActivity"
+           android:theme= "@style/customtitle"   />
+        <activity android:name=".activity.infoquery.CourseActivity"
+            android:theme= "@style/customtitle" />
+        <activity android:name=".activity.infoquery.GradeActivity"
+            android:theme= "@style/customtitle" />
+        <activity android:name=".activity.infoquery.CETActivity"
+            android:theme= "@style/customtitle" />
+        <activity android:name=".activity.infoquery.ExpressActivity"
+            android:theme= "@style/customtitle" />
+       
+        <activity android:name=".activity.NewsActivity"
+            android:theme= "@style/customtitle"  />
+        <activity android:name=".activity.NewsContentActivity" />
+        
+        <activity android:name=".activity.library.LibraryActivity"
+            android:theme= "@style/customtitle" />
+        <activity android:name=".activity.library.HotBookActivity" />
+        <activity android:name=".activity.library.SearchBookActivity" />
+        <activity android:name=".activity.library.MyBorrowActivity" />
+        
+        <service android:name=".services.MainService">
+			<intent-filter >
+			    <action android:name="cn.edu.wit.withelper.services.MainService" />
+			</intent-filter>    
+		</service>
+    </application>
+    
+
+</manifest>

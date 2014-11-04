@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/lightgrey"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+        <cn.edu.wit.withelper.util.MyAutoCompleteTextView
+            android:id="@+id/expressName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="40dp"
+            android:hint="请选择快递商"
+            android:padding="3dp"
+            android:background="@color/white"
+            android:singleLine="true"
+            android:textSize="25sp" />
+<!--  
+        <ImageButton
+            android:id="@+id/ib_spinner"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@id/expressName"
+            android:layout_alignRight="@id/expressName"
+            android:layout_alignTop="@id/expressName"
+            android:src="@drawable/btn_browser2" />
+            -->
+    </RelativeLayout>
+
+    <cn.edu.wit.withelper.util.ClearEditText
+        android:id="@+id/orderID"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="40dp"
+        android:drawableRight="@drawable/delete_selector"
+        android:hint="快递号"
+        android:inputType="number"
+        android:padding="3dp"
+        android:background="@color/white"
+        android:singleLine="true"
+        android:textSize="25sp" />
+
+    <Button
+        android:id="@+id/submit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="40dp"
+        android:padding="3dp"
+        android:background="@drawable/btn_background"
+        android:textSize="25sp"
+        android:text="查询" />
+
+    <ScrollView 
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="15dp">
+        
+	    <TextView
+	        android:id="@+id/tvResult"
+	        android:layout_width="match_parent"
+	        android:layout_height="wrap_content"
+	        android:textColor="@color/color_text"
+	         />
+    </ScrollView>
+
+</LinearLayout>

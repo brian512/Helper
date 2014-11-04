@@ -1,0 +1,134 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/background_login"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:background="@drawable/background_login_div"
+        android:orientation="vertical" >
+
+        <LinearLayout 
+            android:id="@+id/layout_userid"
+            android:layout_width="match_parent"
+    		android:layout_height="wrap_content"
+    		android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="40dp"
+    		android:orientation="horizontal">
+            
+        <cn.edu.wit.withelper.util.ClearEditText
+            android:id="@+id/userid"
+            android:layout_weight="1"
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:background="@drawable/et_userid_border"
+            android:drawableLeft="@drawable/users_selector"
+            android:drawableRight="@drawable/delete_selector"
+            android:hint="请输入您的学号"
+            android:inputType="number"
+            android:focusableInTouchMode="true"
+            android:padding="3dp"
+            android:singleLine="true"
+            android:textSize="25sp" />
+        
+        <ImageButton 
+	        android:id="@+id/ib_spinner"
+	        android:layout_width="wrap_content"
+	        android:layout_height="match_parent"
+	        android:src="@drawable/btn_browser2"
+	        android:background="@drawable/sp_userid_border"
+        />
+        
+        </LinearLayout>
+
+
+        <cn.edu.wit.withelper.util.ClearEditText
+            android:id="@+id/password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="40dp"
+            android:background="@drawable/myborder"
+			android:drawableLeft="@drawable/password_selector"
+            android:drawableRight="@drawable/delete_selector"
+            android:hint="请输入教务处密码"
+            android:padding="3dp"
+            android:password="true"
+            android:singleLine="true"
+            android:textSize="25sp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:gravity="center_horizontal"
+            android:orientation="horizontal" >
+
+            <CheckBox
+                android:id="@+id/isremember"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="true" />
+
+            <TextView
+                android:id="@+id/mytxt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
+                android:text="记住密码"
+                android:textSize="16sp" />
+
+            <CheckBox
+                android:id="@+id/isAuto"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:checked="true" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="自动登录"
+                android:textSize="16sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/LinearLayout01"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20sp"
+            android:layout_marginBottom="40dp"
+            android:gravity="right"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:id="@+id/tvGetPassword"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
+                android:gravity="bottom"
+                android:text="找回密码"
+                android:textSize="20sp" />
+
+            <Button
+                android:id="@+id/login_ok"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="40dp"
+                android:background="@drawable/myborder"
+                android:padding="3dp"
+                android:text="  登     录  "
+                android:textSize="25sp" />
+        </LinearLayout>
+    </LinearLayout>
+    <!--  -->
+
+</LinearLayout>
