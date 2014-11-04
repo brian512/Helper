@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Created by https://www.gitignore.io
 
 ### Eclipse ###
@@ -34,6 +35,8 @@ local.properties
 
 
 ### Android ###
+=======
+>>>>>>> c136f5dd969b3d3a19c2b8ab8c116d58d7163e37
 # Built application files
 *.apk
 *.ap_
@@ -60,7 +63,10 @@ proguard/
 
 # Log Files
 *.log
+<<<<<<< HEAD
 
 ### SVN ###
 .svn/
 
+=======
+>>>>>>> c136f5dd969b3d3a19c2b8ab8c116d58d7163e37
