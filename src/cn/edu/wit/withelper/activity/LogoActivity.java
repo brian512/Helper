@@ -20,7 +20,6 @@ public class LogoActivity extends Activity {
 	
 	Intent intent = null;
 	
-	
 	/** Called when the activity is first created. */
 	@Override
 	public void onCreate(Bundle savedInstanceState) {

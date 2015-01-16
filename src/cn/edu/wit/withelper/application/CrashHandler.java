@@ -22,8 +22,6 @@ import android.util.Log;
 import android.widget.Toast;  
   
 /** 
- *  
- *  
  * UncaughtExceptionHandler：线程未捕获异常控制器是用来处理未捕获异常的。  
  *                           如果程序出现了未捕获异常默认情况下则会出现强行关闭对话框 
  *                           实现该接口并注册为程序中的默认未捕获异常处理  
@@ -239,7 +237,6 @@ public class CrashHandler implements UncaughtExceptionHandler {
   
     /** 
      * 获取错误报告文件名 
-     *  
      * @param ctx 
      * @return 
      */  

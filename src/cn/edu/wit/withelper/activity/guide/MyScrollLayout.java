@@ -15,17 +15,17 @@ public class MyScrollLayout extends ViewGroup {
 
 	private VelocityTracker mVelocityTracker; // 用于判断甩动手势
 
-	private static final int SNAP_VELOCITY = 600;
+	private static final int SNAP_VELOCITY = 600;//尽可能的大，我在其他文章里看到有把这个变量设置为最大的int值
 
-	private Scroller mScroller; // 滑动控制�?
+	private Scroller mScroller; // 滑动控制
 
-	private int mCurScreen;
+	private int mCurScreen;//当前页面的index
 
-	private int mDefaultScreen = 0;
+	private int mDefaultScreen = 0;//默认为第一个页面
 
-	private float mLastMotionX;
+	private float mLastMotionX;//上一个触点的x坐标
 
-	private OnViewChangeListener mOnViewChangeListener;
+	private OnViewChangeListener mOnViewChangeListener;//用于更新标记点的
 
 	public MyScrollLayout(Context context) {
 		super(context);
@@ -47,7 +47,6 @@ public class MyScrollLayout extends ViewGroup {
 		mCurScreen = mDefaultScreen;
 
 		mScroller = new Scroller(context);
-
 	}
 
 	@Override
@@ -61,8 +60,7 @@ public class MyScrollLayout extends ViewGroup {
 				final View childView = getChildAt(i);
 				if (childView.getVisibility() != View.GONE) {
 					final int childWidth = childView.getMeasuredWidth();
-					childView.layout(childLeft, 0, childLeft + childWidth,
-							childView.getMeasuredHeight());
+					childView.layout(childLeft, 0, childLeft + childWidth, childView.getMeasuredHeight());
 					childLeft += childWidth;
 				}
 			}
@@ -100,8 +98,7 @@ public class MyScrollLayout extends ViewGroup {
 
 			final int delta = whichScreen * getWidth() - getScrollX();
 
-			mScroller.startScroll(getScrollX(), 0, delta, 0,
-					Math.abs(delta) * 2);
+			mScroller.startScroll(getScrollX(), 0, delta, 0, Math.abs(delta) * 2);
 
 			mCurScreen = whichScreen;
 			invalidate(); // Redraw the layout
@@ -125,7 +122,7 @@ public class MyScrollLayout extends ViewGroup {
 
 		final int action = event.getAction();
 		final float x = event.getX();
-//		final float y = event.getY();
+//		final float y = event.getY();	//主要是涉及到左右滑动
 
 		switch (action) {
 		case MotionEvent.ACTION_DOWN:
@@ -138,15 +135,16 @@ public class MyScrollLayout extends ViewGroup {
 			}
 
 			if (!mScroller.isFinished()) {
-				mScroller.abortAnimation();
+				mScroller.abortAnimation();//动画退出
 			}
 
 			mLastMotionX = x;
 			break;
 
 		case MotionEvent.ACTION_MOVE:
-			int deltaX = (int) (mLastMotionX - x);
-
+			int deltaX = (int) (mLastMotionX - x);//滚动方向与滑动方向 相反
+												//手指向左滑动时，坐标值减小，但是内容的坐标值要变大
+			
 			if (IsCanMove(deltaX)) {
 				if (mVelocityTracker != null) {
 					mVelocityTracker.addMovement(event);
@@ -154,7 +152,7 @@ public class MyScrollLayout extends ViewGroup {
 
 				mLastMotionX = x;
 
-				scrollBy(deltaX, 0);
+				scrollBy(deltaX, 0);//滑动距离（deltaX, 0）
 			}
 
 			break;
@@ -172,8 +170,7 @@ public class MyScrollLayout extends ViewGroup {
 				// Fling enough to move left
 				Log.e(TAG, "snap left");
 				snapToScreen(mCurScreen - 1);
-			} else if (velocityX < -SNAP_VELOCITY
-					&& mCurScreen < getChildCount() - 1) {
+			} else if (velocityX < -SNAP_VELOCITY && mCurScreen < getChildCount()-1) {
 				// Fling enough to move right
 				Log.e(TAG, "snap right");
 				snapToScreen(mCurScreen + 1);
@@ -190,12 +187,13 @@ public class MyScrollLayout extends ViewGroup {
 		return true;
 	}
 
-	private boolean IsCanMove(int deltaX) {
+	
+	private boolean IsCanMove(int deltaX) {//deltaX为滑动的距离
 
-		if (getScrollX() <= 0 && deltaX < 0) {
+		if (getScrollX() <= 0 && deltaX < 0) {//最左端
 			return false;
 		}
-		if (getScrollX() >= (getChildCount() - 1) * getWidth() && deltaX > 0) {
+		if (getScrollX() >= (getChildCount()-1) * getWidth() && deltaX > 0) {
 			return false;
 		}
 		return true;

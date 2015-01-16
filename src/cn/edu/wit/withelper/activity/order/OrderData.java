@@ -2,7 +2,6 @@ package cn.edu.wit.withelper.activity.order;
 
 import java.util.ArrayList;
 import java.util.Iterator;
-import java.util.Random;
 
 public class OrderData {
 
@@ -26,13 +25,13 @@ public class OrderData {
 	}
 
 	// generate some random amount of child objects (1..10)
-	private void generateChildren() {
-		Random rand = new Random();
-		for (int i = 0; i < rand.nextInt(9) + 1; i++) {
-			OrderData cat = new OrderData("Child " + i);
-			this.children.add(cat);
-		}
-	}
+//	private void generateChildren() {
+//		Random rand = new Random();
+//		for (int i = 0; i < rand.nextInt(9) + 1; i++) {
+//			OrderData cat = new OrderData("Child " + i);
+//			this.children.add(cat);
+//		}
+//	}
 
 	public static ArrayList<OrderData> getOrderDatas() {
 		ArrayList<OrderData> orderDatas = new ArrayList<OrderData>();

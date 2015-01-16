@@ -50,19 +50,14 @@ public class HomeActivity extends Activity implements IAssistantActivity{
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		
-//		requestWindowFeature(Window.FEATURE_NO_TITLE);//去掉标题栏
-		
 		// 显示标题，以下三行代码顺序不可变
 		requestWindowFeature(Window.FEATURE_CUSTOM_TITLE);
 		super.setContentView(R.layout.home);
-		getWindow().setFeatureInt(Window.FEATURE_CUSTOM_TITLE,
-				R.layout.titlebar_main); // titlebar为自己标题栏的布局
+		getWindow().setFeatureInt(Window.FEATURE_CUSTOM_TITLE, R.layout.titlebar_main); // titlebar为自己标题栏的布局
 		// 设置标题
 		TextView tvMainTitle = (TextView) findViewById(R.id.main_title);
 		tvMainTitle.setText("微高校-WIT");
 		init();
-
 	}
 
 	@Override
@@ -71,6 +66,7 @@ public class HomeActivity extends Activity implements IAssistantActivity{
 		tvUserName = (TextView) findViewById(R.id.userName);
 		user_Icon = (CircleImageView) findViewById(R.id.user_icon);
 		
+		//读取默认用户
 		if (null == MainService.nowUser) {
 			MainService.nowUser = SharedPreferencesUtil.getLoginUser(HomeActivity.this);
 		}
@@ -78,13 +74,14 @@ public class HomeActivity extends Activity implements IAssistantActivity{
 //		tvUserName.setText(MainService.nowUser.getUserName());
 		tvUserName.setText("张三");
 		
+		//读取用户的头像，还未完成
 		if (-1 < MainService.nowUser.getIconIndex()) {
 			user_Icon.setImageDrawable(getResources().getDrawable(MainService.nowUser.getIconIndex()));
 		}else {
 			user_Icon.setImageDrawable(getResources().getDrawable(R.drawable.portrait_1));
 		}
 		
-		
+		//抽屉效果的菜单
 		sliding = (MenuSlidingDrawer) findViewById(R.id.slidingdrawer);;
 		
 		
@@ -111,7 +108,7 @@ public class HomeActivity extends Activity implements IAssistantActivity{
 			}
 		});
 		
-		
+		//主界面的初始化布局
 		this.myGridView = (GridView) findViewById(R.id.myGridView);
 		
 		int screenWidth  = getWindowManager().getDefaultDisplay().getWidth();
@@ -127,7 +124,7 @@ public class HomeActivity extends Activity implements IAssistantActivity{
 		lp.setMargins(0, top, 0, bottom);
 //		myGridView.setLayoutParams(lp);
 		
-		
+		//数据的初始化
 		ArrayList<HashMap<String, Object>> list = new ArrayList<HashMap<String, Object>>();
 		
 		HashMap<String, Object> map1 = new HashMap<String, Object>();
@@ -241,6 +238,7 @@ public class HomeActivity extends Activity implements IAssistantActivity{
 		
 	}
 
+	//框架中刷新界面的
 	@Override
 	public void refresh(Object... params) {
 		//更新主界面
@@ -260,6 +258,7 @@ public class HomeActivity extends Activity implements IAssistantActivity{
 				return false;
 			}
 		}
+		//菜单键，弹出抽屉
 		case KeyEvent.KEYCODE_MENU:{
 			sliding.animateToggle();
 			break;

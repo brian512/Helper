@@ -1,8 +1,5 @@
 package cn.edu.wit.withelper.util;
 
-import java.io.IOException;
-import java.net.HttpURLConnection;
-import java.net.URL;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -26,13 +23,12 @@ import org.json.JSONTokener;
 import cn.edu.wit.withelper.bean.Task;
 import cn.edu.wit.withelper.services.MainService;
 
-import android.graphics.drawable.Drawable;
 import android.os.Message;
 import android.util.Log;
 
 public class InterfaceUtil {
 
-	private static final String SALT = "withelper_itjesse";
+	private static final String SALT = "withelper_itjesse";//约定的一个key
 	private static final String TAG = "InterfaceUtil";
 
 	@SuppressWarnings("finally")
@@ -45,9 +41,9 @@ public class InterfaceUtil {
 		//时间戳
 		params.put("timestamp", "" + timestamp);
 		//sign
-		params.put("sign", MD5Util.getMD5String(SALT + timestamp));
+		params.put("sign", MD5Util.getMD5String(SALT + timestamp));//通过时间戳与约定key的MD5值校验请求的安全性
 		
-		String result = postRequestToServer(url, params);
+		String result = postRequestToServer(url, params);//请求数据
 		
 		if (null == result) {
 			Log.i(TAG, "result = null");
@@ -58,7 +54,7 @@ public class InterfaceUtil {
 			JSONTokener jsonTokener = new JSONTokener(result);
 			JSONObject json = null;
 			try {
-				
+				//解析出json对象
 				json = (JSONObject) jsonTokener.nextValue();
 				
 			} catch (JSONException e) {
@@ -75,7 +71,7 @@ public class InterfaceUtil {
 	public static String postRequestToServer(String url, // 请求的URL
 			Map<String, String> params // 请求的参数序列
 	) {
-Log.i(TAG, "访问网络");
+		Log.i(TAG, "访问网络");
 		HttpEntityEnclosingRequestBase httpRequest = new HttpPost(url);
 		List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>(params.size());
 
@@ -91,6 +87,7 @@ Log.i(TAG, "访问网络");
 			
 			HttpParams httpparams = client.getParams();
 
+			//请求时长
 			HttpConnectionParams.setConnectionTimeout(httpparams,7000);
 			HttpConnectionParams.setSoTimeout(httpparams,7000);
 			
@@ -106,9 +103,8 @@ Log.i(TAG, "访问网络");
 			}
 
 		} catch (Exception e) {
-			
 			e.printStackTrace();
-			
+			//异常处理
 			Message msg = new Message();
 			msg.what = Task.ERROR_NETEXCEPTION ;
 			msg.obj = e;
@@ -120,26 +116,4 @@ Log.i(TAG, "访问网络");
 		}
 	}
 
-	/**
-	 * 通过url获取图片
-	 * @param url
-	 * @return
-	 */
-	public static Drawable getNetImage(URL url) {
-
-		if (null == url)
-			return null;
-
-		try {
-			HttpURLConnection connection = (HttpURLConnection) url.openConnection();
-
-			return Drawable.createFromStream(connection.getInputStream(),"image");
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-
-		return null;
-
-	}
-	
 }

@@ -100,8 +100,6 @@ public class LoginActivity extends Activity implements IAssistantActivity {
 		cbIsRemember = (CheckBox) findViewById(R.id.isremember);
 		cbIsAuto = (CheckBox) findViewById(R.id.isAuto);
 		
-		
-
 		etUserId.setText("1005100109");
 		etPassword.setText("1005100109");
 		
@@ -133,7 +131,9 @@ public class LoginActivity extends Activity implements IAssistantActivity {
 					loginUser.setUserId(userId);
 					loginUser.setPassword(password);
 					// 调用函数创建新任务
-					newTask(loginUser);
+//					newTask(loginUser);
+					loginUser.setUserName("北极星");
+					refresh(loginUser);
 				} else {
 					if ("".equals(userId)) {
 						etUserId.startAnimation(shake);
@@ -209,7 +209,7 @@ public class LoginActivity extends Activity implements IAssistantActivity {
 	@Override
 	public void refresh(Object... obj) {
 		
-		progressDialog.dismiss();
+//		progressDialog.dismiss();
 		
 		if (null != obj[0]) {
 			

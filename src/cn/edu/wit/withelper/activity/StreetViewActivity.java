@@ -87,16 +87,6 @@ public class StreetViewActivity extends Activity implements StreetViewListener {
     }
 
     @Override
-    protected void onResume() {
-        super.onResume();
-    }
-
-    @Override
-    protected void onStop() {
-        super.onStop();
-    }
-
-    @Override
     public void onViewReturn(final View v) {
         runOnUiThread(new Runnable() {
             @Override
